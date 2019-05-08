@@ -1,12 +1,20 @@
 // Declarative //
 pipeline {
-agent {
+agent any 
+  
+  stages {
+    stage("build"){
+      steps {
+      echo "Hello World"
+      }
+    } 
+  
+  }/*{
 docker { image 'node:7-alpine' }
 }
 stages {
 stage('Test') {
 steps {
-  echo "Hello!"
 sh 'node --version'
 }
 }
@@ -15,9 +23,9 @@ sh 'node --version'
 // Script //
 node {
 /* Requires the Docker Pipeline plugin to be installed */
-docker.image('node:7-alpine').inside {
+/*docker.image('node:7-alpine').inside {
 stage('Test') {
 sh 'node --version'
 }
-}
+}*/
 }
